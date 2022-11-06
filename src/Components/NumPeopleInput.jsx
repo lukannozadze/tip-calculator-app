@@ -14,7 +14,7 @@ const NumPeopleInput = (props) => {
           />
           <input
             className="w-[311px] bg-[#F3F9FA] text-[#00474B] text-[24px] leading-[35.5px] font-spacemono pt-[6px] pb-[6px] rounded-[5px]
-             text-right pr-[17.5px] outline-none  hover:border-2 hover:border-[#26C2AE] cursor-pointer"
+             text-right pr-[17.5px] outline-none  hover:border-2 hover:border-[#26C2AE] cursor-pointer sm:w-[470px] lg:w-[379px]"
             type="text"
             name="numOfPeople"
             placeholder="0"

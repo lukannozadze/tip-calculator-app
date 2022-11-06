@@ -8,13 +8,13 @@ const InputBill = (props) => {
         </span>
         <div className="relative flex items-center">
           <img
-            className="absolute pl-[19px]"
+            className="absolute pl-[19px] pb-[30px]"
             src={dollarPath}
             alt="dollar symbol"
           />
           <input
             className="w-[311px] bg-[#F3F9FA] text-[#00474B] text-[24px] leading-[35.5px] font-spacemono pt-[6px] pb-[6px] rounded-[5px]
-             text-right pr-[17.5px] outline-none hover:border-2 hover:border-[#26C2AE] cursor-pointer "
+             text-right pr-[17.5px] outline-none hover:border-2 hover:border-[#26C2AE] cursor-pointer mb-[32px] sm:w-[470px] lg:w-[379px]"
             type="text"
             name="bill"
             placeholder="0"

@@ -12,10 +12,14 @@ function App() {
         <Header />
         <main>
           <Card>
-            <InputBill />
-            <TipSelector />
-            <NumPeopleInput />
-            <TipOutput />
+            <div className="lg:flex flex-row items-center lg:gap-[48px]">
+              <div className="mb-[32px] ">
+                <InputBill />
+                <TipSelector />
+                <NumPeopleInput />
+              </div>
+              <TipOutput />
+            </div>
           </Card>
         </main>
       </div>
