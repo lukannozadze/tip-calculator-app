@@ -14,7 +14,7 @@ const TipOutput = (props) => {
           </span>
         </div>
         <span className="text-[32px] font-spacemono text-[#26C2AE] leading-[47.5px] pr-[24px]">
-          {isNaN(props.tip) ? "$0.00" : `$${props.tip}`}
+          {isNaN(props.tip) || !isFinite(props.tip) ? "$0.00" : `$${props.tip}`}
         </span>
       </div>
       <div className="flex items-center justify-between lg:mb-[90px]">
@@ -27,7 +27,9 @@ const TipOutput = (props) => {
           </span>
         </div>
         <span className="text-[32px] font-spacemono text-[#26C2AE] leading-[47.5px] pr-[24px]">
-          {isNaN(props.total) ? "$0.00" : `$${props.total}`}
+          {isNaN(props.total) || !isFinite(props.total)
+            ? "$0.00"
+            : `$${props.total}`}
         </span>
       </div>
       <button
