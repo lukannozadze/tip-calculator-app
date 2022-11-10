@@ -1,6 +1,22 @@
+import React, { useState, useEffect } from "react";
 import CustomTipInput from "./CustomTipInput";
-const TipSelector = () => {
+const TipSelector = (props) => {
+  const [tipValue, setTipValue] = useState("");
+  const [active, setActive] = useState(null);
   const percentValuesArr = [5, 10, 15, 25, 50];
+  const percentBtnClickHandler = (e) => {
+    setTipValue(e.target.value);
+    setActive(e.target.value);
+  };
+
+  useEffect(() => {
+    props.onGetTipValue(tipValue);
+  }, [tipValue]);
+  useEffect(() => {
+    if (props.resetClicked) {
+      setActive(null);
+    }
+  }, [props.btnActive]);
   return (
     <div>
       <span className="font-spacemono text-[#5E7A7D] text-[16px] leading-[24px] ">
@@ -11,13 +27,21 @@ const TipSelector = () => {
           return (
             <li key={Math.random().toString()}>
               <button
-                className="w-[146px] bg-[#00474B] font-spacemono text-[24px] 
-              leading-[35.5px] text-[white] pt-[6px] pb-[6px] hover:text-[#00474B] hover:bg-[#9FE8DF] rounded-[5px] cursor-pointer lg:w-[117px]"
+                onClick={percentBtnClickHandler}
+                value={value}
+                className={`w-[146px] bg-[#00474B] font-spacemono text-[24px] 
+              leading-[35.5px] text-[white] pt-[6px] pb-[6px] hover:text-[#00474B] hover:bg-[#9FE8DF] rounded-[5px] cursor-pointer lg:w-[117px] ${
+                active == value ? "bg-[#9FE8DF]" : ""
+              }`}
               >{`${value}%`}</button>
             </li>
           );
         })}
-        <CustomTipInput />
+        <CustomTipInput
+          value={tipValue}
+          onSetTipValue={setTipValue}
+          onSetActive={setActive}
+        />
       </ul>
     </div>
   );

@@ -1,5 +1,8 @@
 import personPath from "../Images/person-icon.png";
 const NumPeopleInput = (props) => {
+  const numPeopleInputChangeHandler = (e) => {
+    props.onGetNumPeople(e.target.value);
+  };
   return (
     <form>
       <label className="flex flex-col gap-[6px]">
@@ -13,9 +16,11 @@ const NumPeopleInput = (props) => {
             alt="dollar symbol"
           />
           <input
+            onChange={numPeopleInputChangeHandler}
             className="w-[311px] bg-[#F3F9FA] text-[#00474B] text-[24px] leading-[35.5px] font-spacemono pt-[6px] pb-[6px] rounded-[5px]
              text-right pr-[17.5px] outline-none  hover:border-2 hover:border-[#26C2AE] cursor-pointer sm:w-[470px] lg:w-[379px]"
-            type="text"
+            type="number"
+            value={props.numPeople || ""}
             name="numOfPeople"
             placeholder="0"
           ></input>
