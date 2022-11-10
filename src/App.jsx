@@ -55,6 +55,7 @@ function App() {
                 <TipSelector
                   onGetTipValue={getTipValue}
                   resetClicked={resetClicked}
+                  setResetClicked={setResetClicked}
                 />
                 <NumPeopleInput
                   onGetNumPeople={getNumPeople}

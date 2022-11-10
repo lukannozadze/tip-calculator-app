@@ -12,11 +12,13 @@ const TipSelector = (props) => {
   useEffect(() => {
     props.onGetTipValue(tipValue);
   }, [tipValue]);
+
   useEffect(() => {
     if (props.resetClicked) {
       setActive(null);
+      props.setResetClicked(!props.resetClicked);
     }
-  }, [props.btnActive]);
+  }, [props.resetClicked]);
   return (
     <div>
       <span className="font-spacemono text-[#5E7A7D] text-[16px] leading-[24px] ">
@@ -40,7 +42,9 @@ const TipSelector = (props) => {
         <CustomTipInput
           value={tipValue}
           onSetTipValue={setTipValue}
+          onTipValue={tipValue}
           onSetActive={setActive}
+          resetClicked={props.resetClicked}
         />
       </ul>
     </div>
